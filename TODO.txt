@@ -1,0 +1,12 @@
+Error in maven schemagen:
+
+Post error in maven schemagen:
+
+Should not convert spaces to %20:
+
+schemagen -encoding UTF-8 -d D:\Users\marap1\Projects\2014-09 AKTIN\repo-v2\aktin\dwh-api\target\schemagen-work\compile_scope -classpath /D:/Users/marap1/Projects/2014-09%20AKTIN/repo-v2/aktin/dwh-api/src/main/java/ -episode D:\Users\marap1\Projects\2014-09 AKTIN\repo-v2\aktin\dwh-api\target\generated-resources\schemagen\META-INF\sun-jaxb.episode src\main\java\org\aktin\exchange\AbstractConcept.java src\main\java\org\aktin\exchange\Principal.java src\main\java\org\aktin\exchange\Query.java src\main\java\org\aktin\exchange\RawConcept.java src\main\java\org\aktin\exchange\XMLConstants.java src\main\java\org\aktin\exchange\package-info.java
+
+
+
+https://github.com/mojohaus/jaxb2-maven-plugin/issues/
+
