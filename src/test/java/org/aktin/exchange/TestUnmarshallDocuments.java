@@ -91,5 +91,12 @@ public class TestUnmarshallDocuments {
 		validator.validate(getResource("/request.xml"));
 
 	}
+	
+	@Test
+	public void unmarshallRequest(){
+		QueryRequest r = JAXB.unmarshal(getResource("/request.xml"), QueryRequest.class);
+		Assert.assertNotNull(r.published);
+		Assert.assertNotNull(r.deadline);
+	}
 
 }
