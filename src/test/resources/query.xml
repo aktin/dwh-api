@@ -1,5 +1,6 @@
 <query xmlns="http://aktin.org/ns/exchange"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dwh="http://aktin.org/ns/dwh">
 	<id>123</id>
 	<description>Lala</description>
 	<principal>
@@ -15,4 +16,7 @@
 	<concepts>
 		<concept id="birthdate" xsi:type="raw"/>
 	</concepts>
+	<dwh:sql xsi:type="dwh:sqlt">
+		SELECT a, b;
+	</dwh:sql>
 </query>

@@ -15,7 +15,7 @@ public abstract class QuerySchedule {
 
 	/**
 	 * Duration for the query. The duration is relative
-	 * to the {@link #reference} timestamp and might also be negative.
+	 * to a reference timestamp and might also be negative.
 	 */
 	@XmlElement(required=true)
 	public Period duration;

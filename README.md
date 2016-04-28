@@ -65,11 +65,14 @@ Query exchange
 		<received>XXXtimestamp</received>
 		<confirmation method="single|double|automatic">xxx</confirmation>
 		<!-- confirmation or rejection -->
-		<rejected></rejected>
+		<rejected></rejected><!-- manually rejected -->
+		<!-- may also automatically reject requests:
+		 reject all because of vacation,
+		 reject specific recurring query -->
 		<comment></comment>
 		<last-execution>
 			<completed>XXXtimestamp</completed>
-			<failed></failed>
+		<failed></failed><!-- may fail due to technical reasons -->
 			
 		</last-execution>
 		<last-contact>
@@ -79,4 +82,9 @@ Query exchange
 
 <query-result id-ref="">
 </query-result>
+
+<nodeStatus>
+	<module artifact="dwh-api" version="0.1-SNAPSHOT"/>
+	
+</nodeStatus>
 ```

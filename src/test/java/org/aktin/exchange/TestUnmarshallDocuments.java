@@ -71,20 +71,22 @@ public class TestUnmarshallDocuments {
 	@Test
 	public void unmarshallQuery() throws IOException, SAXException{
 		Source xml = getResource("/query.xml");
-			Query query = JAXB.unmarshal(xml, Query.class);
-			Assert.assertEquals(query.schedule.getClass(), SingleExecution.class);
-			SingleExecution se = (SingleExecution)query.schedule;
-			Assert.assertNotNull(se.duration);
-			Assert.assertNotNull(se.reference);
-			//System.out.println("Duration:"+se.duration);
-			//System.out.println("Reference:"+se.reference);
-
-			
-			// print XML output
-			//se.duration = Period.ofMonths(1);
-			//se.reference = Instant.now();
-			//JAXB.marshal(query, System.out);
-			
+		Query query = JAXB.unmarshal(xml, Query.class);
+		Assert.assertEquals(query.schedule.getClass(), SingleExecution.class);
+		SingleExecution se = (SingleExecution)query.schedule;
+		Assert.assertNotNull(se.duration);
+		Assert.assertNotNull(se.reference);
+		//System.out.println("Duration:"+se.duration);
+		//System.out.println("Reference:"+se.reference);
+		
+		
+		// print XML output
+		//se.duration = Period.ofMonths(1);
+		//se.reference = Instant.now();
+		//JAXB.marshal(query, System.out);
+		System.out.println("Query definition ns: "+query.definition.getNamespaceURI());
+		System.out.println("Query definition elem: "+query.definition.getLocalName());
+		
 	}
 	@Test
 	public void validateQueryRequest() throws IOException, SAXException, TransformerException{

@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.w3c.dom.Element;
 
 /**
  * Query which can be executed in an i2b2
@@ -53,4 +56,7 @@ public class Query {
 	@XmlElementWrapper(name="concepts",required=true)
 	@XmlElement(name="concept",required=true)
 	public List<AbstractConcept> concepts;
+
+	@XmlAnyElement
+	public Element definition;
 }
