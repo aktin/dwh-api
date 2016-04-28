@@ -1,0 +1,17 @@
+<project>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.4</version>
+	</skin>
+	<body>
+		<menu name="Communication">
+			<item href="communication.html" name="Communication" />
+		</menu>
+		<menu ref="reports" inherit="top" />
+		<!--
+		<menu ref="modules" />
+		<menu ref="parent" />
+		-->
+	</body>
+</project>

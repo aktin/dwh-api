@@ -24,7 +24,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>2.2</version>
 				<executions>
 					<execution>
 						<id>schemagen</id>
@@ -40,6 +39,33 @@
 					</sources>
 				</configuration>
 			</plugin>
+			<plugin>
+				<!-- this is only needed for generating sequence diagrams
+				for the documentation -->
+				<groupId>com.github.jeluard</groupId>
+				<artifactId>plantuml-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>plantuml</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceFiles>
+						<directory>${basedir}/src/site/plantuml</directory>
+						<includes>
+							<include>**</include>
+						</includes>
+					</sourceFiles>
+					<outputDirectory>${project.build.directory}/site/plantuml</outputDirectory>
+				</configuration>
+
+			</plugin>
+
 		</plugins>
 		
 	</build> 

@@ -1,0 +1,30 @@
+@startuml
+box "Hospital"
+	actor "Emergency Room" as ER
+	participant "AKTIN Data Warehouse" as DWH
+end box
+participant "AKTIN Broker" as Broker
+actor "Epidemiologist" as Epi
+actor	Researcher
+ER->DWH : Emergency note records
+...
+DWH->Broker : ask for query requests
+Broker->DWH : new query request
+DWH->ER : notification
+...
+ER->DWH : new request verified
+DWH->DWH : perform query
+opt
+	DWH->ER : result notification
+	...
+	ER->DWH : result verified
+end
+DWH->Broker : submit results
+...waiting for results from other hospitals...
+Broker->Epi : complete results
+Epi->Epi : performs analysis
+Epi->Researcher : analysis results
+opt
+	Epi->Researcher : k-anonymized Data set
+end
+@enduml

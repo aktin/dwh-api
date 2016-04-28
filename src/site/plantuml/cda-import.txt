@@ -1,0 +1,9 @@
+@startuml
+participant "Emergency Room" as ER
+box "AKTIN Data Warehouse"
+	participant "CDA Interface" as CDA
+	database	Database
+end box
+ER->CDA : CDA Document
+CDA->Database : De-identified data
+@enduml
