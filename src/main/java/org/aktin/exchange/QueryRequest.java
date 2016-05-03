@@ -34,10 +34,19 @@ public class QueryRequest {
 	/**
 	 * Time stamp when the request was published at the query broker.
 	 */
+	@XmlElement(required=true)
 	Instant published;
+	/**
+	 * Time stamp for the earliest execution / when the request is open.
+	 * If unspecified, the query can be executed at any time (usually
+	 * before the deadline)
+	 */
+	@XmlElement(required=false)
+	Instant scheduled;
 	/**
 	 * Due date until which the query results have to be submitted.
 	 */
+	@XmlElement(required=true)
 	Instant deadline;
 	/**
 	 * Date when the request was closed by the query broker. While

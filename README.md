@@ -69,6 +69,7 @@ Query exchange
 		<!-- may also automatically reject requests:
 		 reject all because of vacation,
 		 reject specific recurring query -->
+		<reject-reason>La la la</reject-reason>
 		<comment></comment>
 		<last-execution>
 			<completed>XXXtimestamp</completed>
