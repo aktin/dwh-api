@@ -10,9 +10,9 @@
 		<email>it-support@aktin.org</email>
 		<phone>+49 (441) 798 - 2772</phone>
 	</principal>
-	<schedule xsi:type="singleExecution">
-		<duration>-P1M</duration>
-		<reference>2016-04-01T00:00:00Z</reference>
+	<schedule xsi:type="repeatedExecution">
+		<duration>-1W</duration>
+		<interval>P1D</interval>
 	</schedule>
 	<concepts>
 		<concept id="birthdate" xsi:type="raw"/>

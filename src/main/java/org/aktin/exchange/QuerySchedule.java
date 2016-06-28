@@ -14,8 +14,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 public abstract class QuerySchedule {
 
 	/**
-	 * Duration for the query. The duration is relative
-	 * to a reference timestamp and might also be negative.
+	 * Duration for the queried data, relative to the request reference date
+	 * {@link QueryRequest#referenceDate}. Usually negative: e.g. -D1M for previous month.
 	 */
 	@XmlElement(required=true)
 	public Period duration;

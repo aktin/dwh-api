@@ -72,7 +72,7 @@ public class TestUnmarshallDocuments {
 	public void unmarshallQuery() throws IOException, SAXException{
 		Source xml = getResource("/query.xml");
 		Query query = JAXB.unmarshal(xml, Query.class);
-		Assert.assertEquals(query.schedule.getClass(), SingleExecution.class);
+		Assert.assertEquals(SingleExecution.class, query.schedule.getClass());
 		SingleExecution se = (SingleExecution)query.schedule;
 		Assert.assertNotNull(se.duration);
 		Assert.assertNotNull(se.reference);

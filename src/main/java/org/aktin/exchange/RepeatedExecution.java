@@ -18,5 +18,5 @@ public class RepeatedExecution extends QuerySchedule{
 	 * This property will not cause any execution on the data warehouse side.
 	 * It is solely for information purposes.
 	 */
-	public Duration repeats;
+	public Duration interval;
 }
