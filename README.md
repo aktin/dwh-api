@@ -33,8 +33,8 @@ Query exchange
 		</schedule>
 
 		<concepts>
-			<concept id="CEDIS30:XXX" type="raw"/>
-			<concept id="XXX1" type="aggregate">
+			<concept id="CEDIS30:ABC1" type="raw"/>
+			<concept id="geschlecht" type="aggregate">
 				<count group-by="fact.value">
 			</concept>
 			<concept id="XXX1" type="aggregate">
@@ -81,7 +81,62 @@ Query exchange
 	</request-status>
 
 
-<query-result id-ref="">
+<query-result request-ref="1">
+	<timestamp>2015-12-02T18:30:14</timestamp>
+	<execution-time>P10S</execution-time>
+	<result xsi:type="aggragated-result">
+		<value id="cedis-count">321</value>
+		<breakdown id="gender">
+			<value id="male">110</value>
+			<value id="female">112</value>
+		</breakdown>
+	</result>
+<!-- or -->
+	<result xsi:type="export-result">
+		<table id="patients">
+			<headers>
+				<header>id</header>
+				<header>birthdate</header>
+			</headers>
+			<tr>
+				<td>1</td>
+				<td>2010-01-01</td>
+			</tr>
+		</table>
+		<table id="visits">
+			<headers>
+				<header>patient-ref</header>
+				<header>id</header>
+				<header>start</header>
+			</headers>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>2016-05-08T09:32:00</td>
+			</tr>
+		</table>
+		<table id="diagnoses">
+			<headers>
+				<header>patient-ref</header>
+				<header>visit-ref</header>
+				<header>start</header>
+				<header>code</header>
+			</headers>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>2016-05-08T09:32:00</td>
+				<td>R46.1</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>2016-05-08T09:32:00</td>
+				<td>W46.05</td>
+			</tr>
+		</table>
+	</result>
+
 </query-result>
 
 <nodeStatus>
