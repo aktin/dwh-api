@@ -6,8 +6,60 @@ Generate XSD files:
 "$JAVA_HOME"/bin/schemagen -d target -cp target/classes org.aktin.exchange.Query
 ```
 
+At node: required configuration for certificate
+-----------------
+my.name
+my.email
+my.oid
+my.organisation
+my.state
+my.country
+
+Broker/pool identifies node by its oid
+
+At node: Register new broker
+---------------------------
+Only once: Add+trust certification-authority (ca) certificate manually, multiple trusted CAs are possible
+
+GET /broker/ca.cert (outside of TLS area) or other way to retrieve cert chain from ssl connection: http://stackoverflow.com/questions/6755180/java-ssl-connect-add-server-cert-to-keystore-programatically )
+if ca.cert not trusted, abort with message "Broker not trusted (add CA name)"
+if no private key, generate private key
+if no response from CA in keystore, 
+	display certification request to submit to CA
+	display textfield to paste response
+	abort
+connect with keystore to broker
+GET /broker/welcome
+Show welcome message
+goto query exchange
+
 Query exchange
 --------------
+Outbound connections during fixed times or on-demand
+IF unsubmitted queries pending
+Node connects to Pool
+Node submits query results
+Node closes connections to Pool
+ENDIF
+
+Node connects to Broker (HTTP keep-alive, gzip-compression)
+Node submits node status
+IF first time
+Node requests open queries
+ELSE
+Node requests queries (modified since last-contact)
+END IF
+Node stores queries
+Node submits status for all queries (modified since last contact)
+Node closes connection to Broker
+Node sets last-contact to timestamp when the broker-connection was established.
+
+Message Feature
+--------
+Broker may store messages (broadcasts), which can be
+fetched by the nodes.
+
+
 ```
 <request>
 	<id>unique request id</id>
@@ -59,85 +111,6 @@ Query exchange
 		<canceled>2015-12-02T18:30:14</canceled>
 	</broker>
 </query>
-
-	<request-status ref="123">
-		<last-modified>max timestampt der nachfolgenden</last-modified>
-		<received>XXXtimestamp</received>
-		<confirmation method="single|double|automatic">xxx</confirmation>
-		<!-- confirmation or rejection -->
-		<rejected></rejected><!-- manually rejected -->
-		<!-- may also automatically reject requests:
-		 reject all because of vacation,
-		 reject specific recurring query -->
-		<reject-reason>La la la</reject-reason>
-		<comment></comment>
-		<last-execution>
-			<completed>XXXtimestamp</completed>
-		<failed></failed><!-- may fail due to technical reasons -->
-			
-		</last-execution>
-		<last-contact>
-		<result-submitted>XXX timestamp</result-submitted>
-	</request-status>
-
-
-<query-result request-ref="1">
-	<timestamp>2015-12-02T18:30:14</timestamp>
-	<execution-time>P10S</execution-time>
-	<result xsi:type="aggragated-result">
-		<value id="cedis-count">321</value>
-		<breakdown id="gender">
-			<value id="male">110</value>
-			<value id="female">112</value>
-		</breakdown>
-	</result>
-<!-- or -->
-	<result xsi:type="export-result">
-		<table id="patients">
-			<headers>
-				<header>id</header>
-				<header>birthdate</header>
-			</headers>
-			<tr>
-				<td>1</td>
-				<td>2010-01-01</td>
-			</tr>
-		</table>
-		<table id="visits">
-			<headers>
-				<header>patient-ref</header>
-				<header>id</header>
-				<header>start</header>
-			</headers>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>2016-05-08T09:32:00</td>
-			</tr>
-		</table>
-		<table id="diagnoses">
-			<headers>
-				<header>patient-ref</header>
-				<header>visit-ref</header>
-				<header>start</header>
-				<header>code</header>
-			</headers>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>2016-05-08T09:32:00</td>
-				<td>R46.1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>2016-05-08T09:32:00</td>
-				<td>W46.05</td>
-			</tr>
-		</table>
-	</result>
-
-</query-result>
 
 <nodeStatus>
 	<module artifact="dwh-api" version="0.1-SNAPSHOT"/>

@@ -20,18 +20,13 @@ activate Broker
 Broker->DWH : new query request
 deactivate Broker
 DWH->ER : notification
+deactivate DWH
 activate ER
 ...
 ER->DWH : new request verified
 deactivate ER
+activate DWH
 DWH->DWH : perform query
-opt
-	DWH->ER : result notification
-	activate ER
-	...
-	ER->DWH : result verified
-	deactivate ER
-end
 DWH->Pool : submit results
 deactivate DWH
 activate Pool

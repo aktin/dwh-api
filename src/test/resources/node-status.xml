@@ -1,0 +1,12 @@
+<node-status>
+	<!-- when the status was collected -->
+	<timestamp>now</timestamp>
+	<!-- duration the (application)server is running -->
+	<uptime></uptime>
+	<!-- timestamp when the latest data/CDA was imported -->
+	<latest-import></latest-import>
+	<!-- version number of the running EAR, all other versions 
+	can be deduced from the release POM -->
+	<!-- get this info via new InitialContext().lookup("java:app/AppName") -->
+	<software>dwh-ear-0.2-SNAPSHOT</software>
+</node-status>

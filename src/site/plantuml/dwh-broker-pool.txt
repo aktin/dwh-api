@@ -1,0 +1,15 @@
+@startuml
+box "Hospital"
+	participant "AKTIN Data Warehouse" as DWH
+end box
+participant "AKTIN Broker" as Broker
+participant "AKTIN Pool" as Pool
+activate DWH
+DWH->Broker : submit node-status
+activate Broker
+DWH->Pool : submit completed query results
+DWH->Broker : retrieve query requests
+Broker->DWH : list of requests
+DWH->Broker : submit request status
+deactivate Broker
+@enduml

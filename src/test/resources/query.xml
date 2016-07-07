@@ -9,6 +9,9 @@
 		<organisation>AKTIN</organisation>
 		<email>it-support@aktin.org</email>
 		<phone>+49 (441) 798 - 2772</phone>
+		<!-- optional cryptographic signature at a later release
+		<signature></signature>
+		-->
 	</principal>
 	<schedule xsi:type="singleExecution">
 		<duration>-P1M</duration>
