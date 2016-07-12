@@ -3,6 +3,7 @@ package org.aktin.exchange;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.Duration;
 
 import javax.xml.bind.JAXB;
 import javax.xml.parsers.ParserConfigurationException;
@@ -19,6 +20,7 @@ import javax.xml.validation.Validator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -79,14 +81,9 @@ public class TestUnmarshallDocuments {
 		//System.out.println("Duration:"+se.duration);
 		//System.out.println("Reference:"+se.reference);
 		
-		
-		// print XML output
-		//se.duration = Period.ofMonths(1);
-		//se.reference = Instant.now();
-		//JAXB.marshal(query, System.out);
-		System.out.println("Query definition ns: "+query.definition.getNamespaceURI());
-		System.out.println("Query definition elem: "+query.definition.getLocalName());
-		
+		for( Element el : query.extensions ){
+			System.out.println("Extension name="+el.getLocalName()+", ns="+el.getNamespaceURI());
+		}		
 	}
 	@Test
 	public void validateQueryRequest() throws IOException, SAXException, TransformerException{
@@ -99,6 +96,14 @@ public class TestUnmarshallDocuments {
 		QueryRequest r = JAXB.unmarshal(getResource("/request.xml"), QueryRequest.class);
 		Assert.assertNotNull(r.published);
 		Assert.assertNotNull(r.deadline);
+	}
+
+	@Test
+	public void unmarshall_node_status(){
+		NodeStatus n = JAXB.unmarshal(getResource("/node-status.xml"), NodeStatus.class);
+		Assert.assertNotNull(n.timestamp);
+		Assert.assertNotNull(n.uptime);
+		
 	}
 
 }
