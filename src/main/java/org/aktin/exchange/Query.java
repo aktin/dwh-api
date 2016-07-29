@@ -53,6 +53,13 @@ public class Query {
 	@XmlElement(required=true)
 	public QuerySchedule schedule;
 	
+	/**
+	 * Extension to specify export definition and query definition.
+	 * <p>
+	 * E.g. for native i2b2: elements {@code query_definition} and {@code result_output_list}
+	 * from XML namespace {@code http://www.i2b2.org/xsd/cell/crc/psm/1.1/}.
+	 * </p>
+	 */
 	@XmlAnyElement
 	public List<Element> extensions;
 

@@ -3,7 +3,6 @@ package org.aktin.exchange;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.time.Duration;
 
 import javax.xml.bind.JAXB;
 import javax.xml.parsers.ParserConfigurationException;
