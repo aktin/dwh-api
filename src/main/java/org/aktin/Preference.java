@@ -2,19 +2,25 @@ package org.aktin;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+import javax.inject.Qualifier;
 
 /**
- * AKTIN preference. If the annotation is used, also implement the {@link Configurable} interface.
+ * AKTIN preference. Can be used to inject preference values into any class.
+ * The preferences can not be changed during runtime.
  * 
- * TODO add annotation processor to verify at compile time that each preference id is unique and method types are void(SingleArg)
  *
  * @author R.W.Majeed
  *
  */
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Preference {
 
-	String id();
-	String example() default "";
-	
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR })
+public @interface Preference {
+	// no default meaning a value is mandatory
+	//@Nonbinding
+	String name();
 }

@@ -1,11 +1,10 @@
 package org.aktin;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import java.util.Set;
 
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Preferences {
+public interface Preferences {
 
-	String group();
-	// TODO add Class<?> validator() to validate preferences
+	String get(String key);
+
+	Set<String> keySet();
 }
