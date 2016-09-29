@@ -22,5 +22,5 @@ import javax.inject.Qualifier;
 public @interface Preference {
 	// no default meaning a value is mandatory
 	//@Nonbinding
-	String name();
+	String key();
 }
