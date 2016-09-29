@@ -6,8 +6,25 @@ package org.aktin.dwh;
  * @author R.W.Majeed
  *
  */
-public class PreferenceKeys {
-	public static final String TLS_KEYSTORE_PATH="tls.keystore.path";
+public enum PreferenceKey {
+	
+	keystorePath("tls.keystore.path"),
+	keystorePass("tls.keystore.pass"),
+	commonName("local.cn"),
+	organisationName("local.o"),
+	organisationUnit("local.ou"),
+	locality("local.l"),
+	state("local.s"),
+	country("local.c"),
+	;
+	private String key;
+	private PreferenceKey(String key){
+		this.key = key;
+	}
+	public String key(){
+		return key;
+	}
+	
 	/*
 	local.name (W) local name for this site/clinic, 
 	local.contact.name (W)
@@ -17,11 +34,6 @@ public class PreferenceKeys {
 	i2b2.crc.ds (R) i2b2 jndi datasource "java:/QueryToolDemoDS"
 	i2b2.lastimport (R) timestamp of last import
 
-	smtp.server (W)
-	smtp.port (W)
-	smtp.user (W)
-	smtp.password (WO)
-	smtp.auth (W) [plain|ssl|...]
 
 	query.notification.email (W) list of email addresses to receive notifications for queries
 	query.result.dir (R)
