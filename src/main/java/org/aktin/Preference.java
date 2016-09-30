@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+import org.aktin.dwh.PreferenceKey;
+
 /**
  * AKTIN preference. Can be used to inject preference values into any class.
  * The preferences can not be changed during runtime.
@@ -22,5 +24,5 @@ import javax.inject.Qualifier;
 public @interface Preference {
 	// no default meaning a value is mandatory
 	//@Nonbinding
-	String key();
+	PreferenceKey key();
 }

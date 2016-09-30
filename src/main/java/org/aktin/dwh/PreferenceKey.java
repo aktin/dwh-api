@@ -7,8 +7,8 @@ package org.aktin.dwh;
  *
  */
 public enum PreferenceKey {
-	
-	keystorePath("tls.keystore.path"),
+
+	keystorePath("tls.keystore.file"),
 	keystorePass("tls.keystore.pass"),
 	commonName("local.cn"),
 	organisationName("local.o"),
@@ -16,7 +16,13 @@ public enum PreferenceKey {
 	locality("local.l"),
 	state("local.s"),
 	country("local.c"),
+	i2b2Project("i2b2.project"),
+	i2b2ServicePM("i2b2.service.pm"),
+	i2b2DatasourceCRC("i2b2.datasource.crc"),
+	rScriptBinary("rscript.binary")
+	
 	;
+
 	private String key;
 	private PreferenceKey(String key){
 		this.key = key;
