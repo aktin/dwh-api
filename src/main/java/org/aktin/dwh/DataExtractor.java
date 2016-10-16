@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.sql.SQLException;
 import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
 
 import javax.xml.transform.Source;
 
@@ -34,7 +35,6 @@ public interface DataExtractor {
 	 * @throws IOException error writing files
 	 * @throws SQLException error while extracting data
 	 */
-	public String[] extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir) throws IOException, SQLException;
-	
+	public CompletableFuture<String[]> extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir);
 
 }
