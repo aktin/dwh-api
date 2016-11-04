@@ -17,9 +17,25 @@ public enum PreferenceKey {
 	state("local.s"),
 	country("local.c"),
 	i2b2Project("i2b2.project"),
+	/** URI to the i2b2 PM service. Used for authentication and user management */
 	i2b2ServicePM("i2b2.service.pm"),
+	/** JNDI data source name which is also used by the i2b2 CRC cell */
 	i2b2DatasourceCRC("i2b2.datasource.crc"),
-	rScriptBinary("rscript.binary")
+	rScriptBinary("rscript.binary"),
+	/** Location where generated reports are stored together with their preferences */
+	reportDataPath("report.data.path"),
+	/** Reports which are no longer needed in the database will be moved to the archiv path. This is a write-only operation. */
+	reportArchivePath("report.archive.path"),
+	/** Location where query data will be stored locally */
+	brokerDataPath("broker.data.path"),
+	/** Queries which are no longer wanted in the database will be moved to the archiv path. This is a write-only operation. */
+	brokerArchivePath("broker.archive.path"),
+	/** Space separated list of brokers to fetch queries from */
+	brokerEndpointURI("broker.uris"),
+	/** JNDI datasource name for non-i2b2 tables */
+	datasource("db.datasource")
+	
+	
 	
 	;
 
