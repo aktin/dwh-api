@@ -33,9 +33,13 @@ public enum PreferenceKey {
 	/** Space separated list of brokers to fetch queries from */
 	brokerEndpointURI("broker.uris"),
 	/** JNDI datasource name for non-i2b2 tables */
-	datasource("db.datasource")
-	
-	
+	datasource("db.datasource"),
+	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
+	wildflyManagementURL("wildfly.management.url"),
+	/** Wildfly management user. See {@link #wildflyManagementURL} */
+	wildflyManagementUser("wildfly.management.user"),
+	/** Wildfly management password. See {@link #wildflyManagementURL} */
+	wildflyManagementPassword("wildfly.management.password"),	
 	
 	;
 
