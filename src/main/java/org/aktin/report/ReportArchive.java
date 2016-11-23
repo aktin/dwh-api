@@ -10,7 +10,7 @@ import org.aktin.report.GeneratedReport;
  * @author R.W.Majeed
  *
  */
-public interface ReportArchive extends Iterable<ArchivedReport>{
+public interface ReportArchive{
 
 	/**
 	 * Add a generated report to the archive. Returns unique id string.
@@ -38,5 +38,7 @@ public interface ReportArchive extends Iterable<ArchivedReport>{
 	 * via getReports.
 	 * @param reportId report id to delete
 	 */
-	void deleteReport(String reportId) throws IOException;
+	void deleteReport(int reportId) throws IOException;
+
+	Iterable<? extends ArchivedReport> reports();
 }

@@ -13,4 +13,5 @@ public interface ArchivedReport extends GeneratedReport {
 	 * @return unique id
 	 */
 	int getId();
+	String getUserId();
 }
