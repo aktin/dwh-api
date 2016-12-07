@@ -35,6 +35,6 @@ public interface DataExtractor {
 	 * @throws IOException error writing files
 	 * @throws SQLException error while extracting data
 	 */
-	public CompletableFuture<String[]> extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir);
+	public CompletableFuture<ExtractedData> extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir);
 
 }
