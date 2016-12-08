@@ -16,14 +16,18 @@ public enum PreferenceKey {
 	locality("local.l"),
 	state("local.s"),
 	country("local.c"),
+	/** Timezone. e.g. Europe/Berlin */
+	timeZoneId("local.tz"),
 	i2b2Project("i2b2.project"),
 	/** URI to the i2b2 PM service. Used for authentication and user management */
 	i2b2ServicePM("i2b2.service.pm"),
 	/** JNDI data source name which is also used by the i2b2 CRC cell */
 	i2b2DatasourceCRC("i2b2.datasource.crc"),
 	rScriptBinary("rscript.binary"),
-	/** Location where generated reports are stored together with their preferences */
+	/** Location where generated reports are stored */
 	reportDataPath("report.data.path"),
+	/** Location to use for temporary files during report generation */
+	reportTempPath("report.temp.path"),
 	/** Reports which are no longer needed in the database will be moved to the archiv path. This is a write-only operation. */
 	reportArchivePath("report.archive.path"),
 	/** Location where query data will be stored locally */
