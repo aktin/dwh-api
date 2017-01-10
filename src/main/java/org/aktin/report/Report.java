@@ -3,6 +3,7 @@ package org.aktin.report;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.time.Instant;
 import java.time.Period;
 import java.util.Arrays;
 
@@ -107,6 +108,10 @@ public interface Report {
 	 */
 	default String[] getRequiredPreferenceKeys(){
 		return new String[]{};
+	}
+
+	default ReportInfo createReportInfo(Instant start, Instant end){
+		return new BasicReportInfo(this, start, end);
 	}
 	/**
 	 * Copies all scripts and resource needed for the Rscript invocation

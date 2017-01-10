@@ -11,14 +11,17 @@ import org.aktin.report.GeneratedReport;
  *
  */
 public interface ReportArchive{
-
+	void setReportFailure(int id, Throwable cause) throws IOException;
+	ArchivedReport setReportResult(int id, GeneratedReport report) throws IOException;
+	
 	/**
-	 * Add a generated report to the archive. Returns unique id string.
-	 * @param generated report
+	 * Add a report to the archive. Returns unique id. The report may not have been generated yet.
+	 * @param report report info to create
+	 * @param userId user id
 	 * @return report id within the archive
 	 * @throws IOException if the report could not be added
 	 */
-	ArchivedReport addReport(GeneratedReport report) throws IOException;
+	ArchivedReport addReport(ReportInfo report, String userId) throws IOException;
 
 	/**
 	 * Retrieve a report by it's id
