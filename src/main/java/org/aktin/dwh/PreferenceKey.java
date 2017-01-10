@@ -38,6 +38,8 @@ public enum PreferenceKey {
 	brokerEndpointURI("broker.uris"),
 	/** JNDI datasource name for non-i2b2 tables */
 	datasource("db.datasource"),
+	/** JNDI email session name to use for outbound messages */
+	emailSession("email.session"),
 	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
 	wildflyManagementURL("wildfly.management.url"),
 	/** Wildfly management user. See {@link #wildflyManagementURL} */
