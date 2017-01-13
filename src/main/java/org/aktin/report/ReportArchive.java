@@ -11,7 +11,7 @@ import org.aktin.report.GeneratedReport;
  *
  */
 public interface ReportArchive{
-	void setReportFailure(int id, Throwable cause) throws IOException;
+	void setReportFailure(int id, String description, Throwable cause) throws IOException;
 	ArchivedReport setReportResult(int id, GeneratedReport report) throws IOException;
 	
 	/**
