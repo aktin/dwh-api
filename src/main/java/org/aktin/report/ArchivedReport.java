@@ -1,6 +1,8 @@
 package org.aktin.report;
 
+import java.io.IOException;
 import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
 
 import org.aktin.report.GeneratedReport;
 
@@ -23,4 +25,13 @@ public interface ArchivedReport extends GeneratedReport {
 	Instant getCreatedTimestamp();
 
 	Status getStatus();
+
+	/**
+	 * Create the report result asynchronously
+	 *
+	 * @param manager report manager
+	 * @return completable future
+	 * @throws IOException immediate failure
+	 */
+	CompletableFuture<Void> createAsync(ReportManager manager) throws IOException;
 }
