@@ -16,6 +16,7 @@ public enum PreferenceKey {
 	locality("local.l"),
 	state("local.s"),
 	country("local.c"),
+	email("local.email"),
 	/** Timezone. e.g. Europe/Berlin */
 	timeZoneId("local.tz"),
 	i2b2Project("i2b2.project"),
@@ -36,6 +37,10 @@ public enum PreferenceKey {
 	brokerArchivePath("broker.archive.path"),
 	/** Space separated list of brokers to fetch queries from */
 	brokerEndpointURI("broker.uris"),
+	/** Space separated list of brokers to fetch queries from */
+	brokerEndpointKeys("broker.keys"),
+	/** Space separated list of brokers to fetch queries from */
+	brokerIntervals("broker.intervals"),
 	/** JNDI datasource name for non-i2b2 tables */
 	datasource("db.datasource"),
 	/** JNDI email session name to use for outbound messages */
