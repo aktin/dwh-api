@@ -13,7 +13,7 @@ public interface ImportStatistics {
 	 */
 	public void reset();
 
-	public long getStartupTime();
+	public long getStartTime();
 	public Long getLastImportTime();
 	public Long getLastFailureTime();
 
@@ -21,8 +21,13 @@ public interface ImportStatistics {
 	public int getImportErrorCount();
 	public int getImportOkCount();
 
-	public Throwable getLastError();
+	/**
+	 * Get a limited number of last errors. The number of errors
+	 * is implementation dependent.
+	 * @return list of exceptions
+	 */
+	public Iterable<String> getLastErrors();
 
-	public void addError(boolean valid, Throwable cause);
+	public void addError(boolean valid, String cause);
 	public void addSuccess();
 }
