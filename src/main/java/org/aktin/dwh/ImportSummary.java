@@ -17,10 +17,18 @@ public interface ImportSummary {
 	public Long getLastWriteTime();
 	public Long getLastRejectTime();
 
-	public int getValidationErrorCount();
 	public int getImportedCount();
 	public int getUpdatedCount();
-	public int getRejectedCount();
+	/**
+	 * Get the number of documents rejected due to validation errors
+	 * @return validation error cound
+	 */
+	public int getInvalidCount();
+	/**
+	 * Get the number of documents which failed during the import (should not happen)
+	 * @return failure count
+	 */
+	public int getFailedCount();
 
 	/**
 	 * Get a limited number of last errors. The number of errors
