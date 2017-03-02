@@ -6,7 +6,7 @@ package org.aktin.dwh;
  * @author R.W.Majeed
  *
  */
-public interface ImportStatistics {
+public interface ImportSummary {
 
 	/**
 	 * Reset the statistics and start timestamp.
@@ -14,12 +14,13 @@ public interface ImportStatistics {
 	public void reset();
 
 	public long getStartTime();
-	public Long getLastImportTime();
-	public Long getLastFailureTime();
+	public Long getLastWriteTime();
+	public Long getLastRejectTime();
 
 	public int getValidationErrorCount();
-	public int getImportErrorCount();
-	public int getImportOkCount();
+	public int getImportedCount();
+	public int getUpdatedCount();
+	public int getRejectedCount();
 
 	/**
 	 * Get a limited number of last errors. The number of errors
@@ -28,6 +29,7 @@ public interface ImportStatistics {
 	 */
 	public Iterable<String> getLastErrors();
 
-	public void addError(boolean valid, String cause);
-	public void addSuccess();
+	public void addRejected(boolean valid, String cause);
+	public void addCreated();
+	public void addUpdated();
 }
