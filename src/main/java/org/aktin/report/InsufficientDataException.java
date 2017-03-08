@@ -11,8 +11,8 @@ import java.util.concurrent.CompletableFuture;
  * Usually, this exception is generated during the asynchronous report
  * generation (e.g. via {@link ReportManager#generateReport(ReportInfo, java.nio.file.Path)}
  * and retrieved via the returned {@link CompletableFuture}.
- * @author Raphael
  * </p>
+ * @author R.W.Majeed
  *
  */
 public class InsufficientDataException extends FileNotFoundException {
