@@ -40,6 +40,7 @@ public interface ReportArchive{
 	 * report should be moved to a write only archive and is no longer accessible
 	 * via getReports.
 	 * @param reportId report id to delete
+	 * @throws IOException error
 	 */
 	void deleteReport(int reportId) throws IOException;
 

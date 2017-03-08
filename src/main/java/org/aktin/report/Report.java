@@ -21,7 +21,7 @@ import javax.xml.transform.Source;
  * parameters are common (e.g. organisation, organisational unit) while
  * others are only valid for reports (e.g. data extraction start timestamp, end timestamp, current time)
  * and some may be report specific (e.g. disable certain parts/plots).
- * Maybe use a Map<String,String> for the prototype.
+ * Maybe use a {@code Map<String,String>} for the prototype.
  * </p>
  * 
  * TODO move this file to the report-manager project
@@ -66,7 +66,7 @@ public interface Report {
 	/**
 	 * Default period for the report, relative to the reference date.
 	 * Use only positive values, e.g. 1 Month, 1 Week.
-	 * @return
+	 * @return default period
 	 */
 	Period getDefaultPeriod();
 

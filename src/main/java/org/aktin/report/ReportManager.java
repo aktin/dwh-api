@@ -28,7 +28,7 @@ public interface ReportManager {
 	/**
 	 * Generate a report asynchronously.
 	 * 
-	 * @param report report information
+	 * @param reportInfo report information
 	 * @param reportDestination destination. Can be {@code null} to let the report manager create a temporary file/folder
 	 * @return completable future
 	 * @throws IOException IO Error

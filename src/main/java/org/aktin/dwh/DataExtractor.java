@@ -1,8 +1,6 @@
 package org.aktin.dwh;
 
-import java.io.IOException;
 import java.nio.file.Path;
-import java.sql.SQLException;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
@@ -30,10 +28,9 @@ public interface DataExtractor {
 	 * @param fromTimestamp start timestamp for the data to extract
 	 * @param endTimestamp end timestamp for the data to extract
 	 * @param exportDescriptor descriptor what data to extract
-	 * @return File names of the created files
+	 * @param destinationDir directory where the data is stored
+	 * @return completable future
 	 * 
-	 * @throws IOException error writing files
-	 * @throws SQLException error while extracting data
 	 */
 	public CompletableFuture<ExtractedData> extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir);
 

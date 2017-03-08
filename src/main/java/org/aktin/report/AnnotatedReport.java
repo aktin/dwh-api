@@ -59,7 +59,7 @@ public abstract class AnnotatedReport implements Report{
 	public @interface Report{
 		/**
 		 * Report id. If not specified, the {@link Class#getCanonicalName()} is used.
-		 * @return
+		 * @return report id
 		 */
 		String id() default "";
 		String displayName();

@@ -16,7 +16,7 @@ public interface ReportOption<T>{
 	
 	/**
 	 * Default value for the option. {@code null} is permitted.
-	 * @return
+	 * @return default value
 	 */
 	public String defaultValue();
 	
@@ -24,6 +24,7 @@ public interface ReportOption<T>{
 	 * Default equals implementation. Two options are equal if and only if
 	 * key, type and default value are equal.
 	 * @param other other option
+	 * @param <U> option type
 	 * @return true if this option is equal to the other option, false otherwise
 	 */
 	public default <U> boolean equals(ReportOption<U> other){
@@ -33,6 +34,7 @@ public interface ReportOption<T>{
 	}
 	/**
 	 * Create a string option
+	 * @param key key
 	 * @param name name
 	 * @param description description
 	 * @param defaultValue default value
