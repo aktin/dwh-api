@@ -31,11 +31,11 @@ public enum PreferenceKey {
 	reportDataPath("report.data.path"),
 	/** Location to use for temporary files during report generation */
 	reportTempPath("report.temp.path"),
-	/** Reports which are no longer needed in the database will be moved to the archiv path. This is a write-only operation. */
+	/** Reports which are no longer needed in the database will be moved to the archive path. This is a write-only operation. */
 	reportArchivePath("report.archive.path"),
 	/** Location where query data will be stored locally */
 	brokerDataPath("broker.data.path"),
-	/** Queries which are no longer wanted in the database will be moved to the archiv path. This is a write-only operation. */
+	/** Queries which are no longer wanted in the database will be moved to the archive path. This is a write-only operation. */
 	brokerArchivePath("broker.archive.path"),
 	/** Space separated list of brokers to fetch queries from */
 	brokerEndpointURI("broker.uris"),
