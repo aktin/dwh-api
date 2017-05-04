@@ -43,6 +43,8 @@ public enum PreferenceKey {
 	brokerEndpointKeys("broker.keys"),
 	/** Space separated list of brokers to fetch queries from */
 	brokerIntervals("broker.intervals"),
+	/** Interaction overrides for requests. Defaults to user. Can also be auto-reject, auto-allow. */
+	brokerInteraction("broker.request.interaction"),
 	/** JNDI datasource name for non-i2b2 tables */
 	datasource("db.datasource"),
 	/** JNDI email session name to use for outbound messages */
