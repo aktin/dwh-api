@@ -19,6 +19,8 @@ public enum PreferenceKey {
 	email("local.email"),
 	/** Timezone. e.g. Europe/Berlin */
 	timeZoneId("local.tz"),
+	/** Language tag IETF BCP 47. e.g. de-DE or en-US */
+	languageTag("local.language"),
 	i2b2Project("i2b2.project"),
 	/** URL to the i2b2 PM service. Used for authentication and user management */
 	i2b2ServicePM("i2b2.service.pm"),
