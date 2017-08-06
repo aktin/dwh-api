@@ -21,6 +21,8 @@ public enum PreferenceKey {
 	timeZoneId("local.tz"),
 	/** Language tag IETF BCP 47. e.g. de-DE or en-US */
 	languageTag("local.language"),
+	/** URL to reach this server from other computers within the same network. e.g. {@code http://srv1.subnet.local/} **/
+	serverUrl("local.server.url"),
 	i2b2Project("i2b2.project"),
 	/** URL to the i2b2 PM service. Used for authentication and user management */
 	i2b2ServicePM("i2b2.service.pm"),
