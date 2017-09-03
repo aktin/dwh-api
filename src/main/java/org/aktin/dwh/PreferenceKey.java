@@ -27,6 +27,7 @@ public enum PreferenceKey {
 	/** URL to the i2b2 PM service. Used for authentication and user management */
 	i2b2ServicePM("i2b2.service.pm"),
 	i2b2ServiceDomain("i2b2.service.domain"),
+	// import.cda.debug.dir, import.cda.debug.level, i2b2.db.tz
 	
 	/** JNDI data source name which is also used by the i2b2 CRC cell */
 	i2b2DatasourceCRC("i2b2.datasource.crc"),
