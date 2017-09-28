@@ -4,7 +4,10 @@ import java.nio.file.Path;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
+import javax.xml.namespace.QName;
 import javax.xml.transform.Source;
+
+import org.w3c.dom.Document;
 
 /**
  * Extract data from the data warehouse
@@ -34,4 +37,12 @@ public interface DataExtractor {
 	 */
 	public CompletableFuture<ExtractedData> extractData(Instant fromTimestamp, Instant endTimestamp, Source exportDescriptor, Path destinationDir);
 
+	/**
+	 * Extract a single patient encounter in XML form.
+	 * @param encounterId encounter id to extract. The id will be matched against visit_mapping..
+	 * @param rootElement qualified name of the XML root element which is expected for the returned document
+	 * @param cdaTemplateId in the case of CDA documents, a template id can be specified
+	 * @return completable future containing the XML document
+	 */
+	public CompletableFuture<Document> extractEncounterXML(String encounterId, QName rootElement, String cdaTemplateId);
 }
