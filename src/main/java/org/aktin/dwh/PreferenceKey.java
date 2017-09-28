@@ -31,6 +31,8 @@ public enum PreferenceKey {
 	
 	/** JNDI data source name which is also used by the i2b2 CRC cell */
 	i2b2DatasourceCRC("i2b2.datasource.crc"),
+	/** Timezone used in the i2b2 database. Usually not needed because the system timezone is used. */
+	i2b2DatabaseTimezone("i2b2.db.tz"),
 	rScriptBinary("rscript.binary"),
 	/** Location where generated reports are stored */
 	reportDataPath("report.data.path"),
@@ -63,6 +65,9 @@ public enum PreferenceKey {
 	/** Wildfly management password. See {@link #wildflyManagementURL} */
 	wildflyManagementPassword("wildfly.management.password"),	
 	
+	cdaPatientRootPreset("cda.patient.root.preset"),
+	
+	cdaEncounterRootPreset("cda.encounter.root.preset"),
 	;
 
 	private String key;
