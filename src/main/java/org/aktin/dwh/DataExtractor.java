@@ -40,9 +40,9 @@ public interface DataExtractor {
 	/**
 	 * Extract a single patient encounter in XML form.
 	 * @param encounterId encounter id to extract. The id will be matched against visit_mapping..
-	 * @param rootElement qualified name of the XML root element which is expected for the returned document
-	 * @param cdaTemplateId in the case of CDA documents, a template id can be specified
+	 * @param rootElement qualified name of the XML root element which is expected for the returned document.
 	 * @return completable future containing the XML document
+	 * @throws IllegalArgumentException if the {@code rootElement} parameter is not understood.
 	 */
-	public CompletableFuture<Document> extractEncounterXML(String encounterId, QName rootElement, String cdaTemplateId);
+	public CompletableFuture<Document> extractEncounterXML(String encounterId, QName rootElement) throws IllegalArgumentException;
 }
