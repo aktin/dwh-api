@@ -1,5 +1,6 @@
 package org.aktin.dwh;
 
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
@@ -43,6 +44,7 @@ public interface DataExtractor {
 	 * @param rootElement qualified name of the XML root element which is expected for the returned document.
 	 * @return completable future containing the XML document
 	 * @throws IllegalArgumentException if the {@code rootElement} parameter is not understood.
+	 * @throws FileNotFoundException if the encounter ID is not registered
 	 */
-	public CompletableFuture<Document> extractEncounterXML(String encounterId, QName rootElement) throws IllegalArgumentException;
+	public CompletableFuture<Document> extractEncounterXML(String encounterId, QName rootElement) throws IllegalArgumentException, FileNotFoundException;
 }
