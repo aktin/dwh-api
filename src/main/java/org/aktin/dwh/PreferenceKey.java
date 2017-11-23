@@ -68,6 +68,8 @@ public enum PreferenceKey {
 	cdaPatientRootPreset("cda.patient.root.preset"),
 	
 	cdaEncounterRootPreset("cda.encounter.root.preset"),
+	pseudonymAlgorithm("pseudonym.algorithm"),
+	pseudonymSalt("pseudonym.salt"),
 	;
 
 	private String key;
