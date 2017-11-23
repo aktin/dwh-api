@@ -52,6 +52,11 @@ public enum PreferenceKey {
 	brokerIntervals("broker.intervals"),
 	/** Interaction overrides for requests. Defaults to user. Can also be auto-reject, auto-allow. */
 	brokerInteraction("broker.request.interaction"),
+	/** Signature algorithm to sign repeating query request. The signatures
+	 * are used by accept rules to make sure a repeating query is not modified
+	 * since e.g. an accept rule was created.
+	 */
+	brokerSignatureAlgorithm("broker.signature.algorithm"),
 	/** JNDI datasource name for non-i2b2 tables */
 	datasource("db.datasource"),
 	/** JNDI email session name to use for outbound messages */
