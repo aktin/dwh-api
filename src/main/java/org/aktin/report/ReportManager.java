@@ -2,7 +2,6 @@ package org.aktin.report;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
 public interface ReportManager {
@@ -10,20 +9,6 @@ public interface ReportManager {
 	Iterable<Report> reports();
 
 	Report getReport(String id);
-
-	/**
-	 * Generate a report asynchronously.
-	 *
-	 * @param report report template
-	 * @param fromTimestamp start timestamp
-	 * @param endTimestamp end timestamp
-	 * @param reportDestination destination for the generated report. Usually a file name.
-	 * @return completable future receiving the report
-	 * @throws IOException IO error
-	 */
-	@Deprecated
-	CompletableFuture<? extends GeneratedReport> generateReport(Report report, Instant fromTimestamp, Instant endTimestamp,
-			Path reportDestination) throws IOException;
 
 	/**
 	 * Generate a report asynchronously.
