@@ -37,5 +37,5 @@ public interface Study {
 
 	Iterable<PatientEntry> allPatients() throws IOException;
 
-	void addPatient(PatientReference ref, String id_root, String id_ext, Participation opt, String sic, String comment, String user) throws IOException;
+	PatientEntry addPatient(PatientReference ref, String id_root, String id_ext, Participation opt, String sic, String comment, String user) throws IOException;
 }
