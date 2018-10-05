@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public interface PatientEntry {
 
-	
+	Study getStudy();
 	Participation getParticipation();
 	PatientReference getReference();
 	String getIdRoot();
