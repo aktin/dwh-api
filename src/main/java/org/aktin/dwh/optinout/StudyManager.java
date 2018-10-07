@@ -1,10 +1,11 @@
 package org.aktin.dwh.optinout;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface StudyManager {
 
-	Iterable<Study> getStudies() throws IOException;
+	List<? extends Study> getStudies() throws IOException;
 
 	/**
 	 * Try to link all entries which have not been linked yet to

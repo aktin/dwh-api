@@ -12,6 +12,7 @@ public interface PatientEntry {
 	String getIdExt();
 	String getSIC();
 	String getUser();
+	long getTimestamp();
 	String getComment();
 	
 	/**
@@ -23,9 +24,16 @@ public interface PatientEntry {
 
 	/**
 	 * Delete this entry
-	 * 
+	 * @param user user name who requested the delete operation
 	 * @throws FileNotFoundException if the patient was not found
 	 * @throws IOException any other IO error
 	 */
-	void delete() throws FileNotFoundException, IOException;
+	void delete(String user) throws FileNotFoundException, IOException;
+
+	/**
+	 * Determine whether a second patient is equal (study, pat_ref,pat_root,pat_ext)
+	 * @param other other entry
+	 * @return true if the ids are equal, false otherwise
+	 */
+	boolean equalsId(PatientEntry other);
 }

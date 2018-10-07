@@ -1,10 +1,15 @@
 package org.aktin.dwh.optinout;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface Study {
 
-	int getId();
+	/**
+	 * Unique id (e.g. acronym) for the study. The id should consist only of URL-safe characters
+	 * @return study id
+	 */
+	String getId();
 	String getTitle();
 	String getDescription();
 	
@@ -35,7 +40,7 @@ public interface Study {
 
 	PatientEntry getPatientByID(PatientReference ref, String id_root, String id_ext) throws IOException;
 
-	Iterable<PatientEntry> allPatients() throws IOException;
+	List<? extends PatientEntry> allPatients() throws IOException;
 
 	PatientEntry addPatient(PatientReference ref, String id_root, String id_ext, Participation opt, String sic, String comment, String user) throws IOException;
 }
