@@ -1,6 +1,7 @@
 package org.aktin.dwh.optinout;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.List;
 
 public interface Study {
@@ -12,6 +13,23 @@ public interface Study {
 	String getId();
 	String getTitle();
 	String getDescription();
+
+	Instant getCreatedTimestamp();
+	Instant getClosedTimestamp();
+	
+	/**
+	 * Determine whether this study allows the specified participation option.
+	 * A study may support multiple participation options.
+	 * @param participation participation option (OptIn, OptOut)
+	 * @return true if the study allows the specified option
+	 */
+	boolean isParticipationSupported(Participation participation);
+	
+	/**
+	 * Whether this study supports manual SIC entries or not.
+	 * @return {@code true} if the study allows manual entry of SICs. {@code false} otherwise
+	 */
+	boolean supportsManualSICs();
 	
 	/**
 	 * Validate the syndax for a (usually manually entered) subject identification code 
