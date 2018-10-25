@@ -70,9 +70,19 @@ public enum PreferenceKey {
 	/** Wildfly management password. See {@link #wildflyManagementURL} */
 	wildflyManagementPassword("wildfly.management.password"),	
 	
+	/** Type of the patient identification for the study manager. Allowed values: Patient, Visit, Encounter, Billing. See {@link #org.aktin.dwh.optinout.PatientReference} */
+	studyIdReference("study.id.reference"),
+	/** Root numbers of the different reference types. Can be empty. */
 	cdaPatientRootPreset("cda.patient.root.preset"),
-	
 	cdaEncounterRootPreset("cda.encounter.root.preset"),
+	cdaBillingRootPreset("cda.billing.root.preset"),
+	/** Label for the extension textfield of the study manager gui based on the reference type. */
+	studyIdPatientLabel("study.id.patient.label"),
+	studyIdEncounterLabel("study.id.encounter.label"),
+	studyIdBillingLabel("study.id.billing.label"),
+	/** Character for separating root and extension in case a root id has to be set manually and is not set in the preferences. */
+	studyIdSeparator("study.id.separator"),
+	
 	pseudonymAlgorithm("pseudonym.algorithm"),
 	pseudonymSalt("pseudonym.salt"),
 	;
