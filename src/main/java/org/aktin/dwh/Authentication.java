@@ -6,10 +6,9 @@ public interface Authentication extends Principal{
 	@Override
 	String getName();
 
-	// TODO : correct JavaDoc
 	/**
-	 * Determine whether the user has the given role assigned.
-	 * @return true if role is assigned, false otherwise
+	 * Determines the role that is assigned to the user.
+	 * @return the assigned role
 	 */
 	String getRole();
 
