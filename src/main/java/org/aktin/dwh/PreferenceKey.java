@@ -1,5 +1,7 @@
 package org.aktin.dwh;
 
+import org.aktin.dwh.optinout.PatientReference;
+
 /**
  * Preferences keys for the data warehouse
  * 
@@ -70,7 +72,7 @@ public enum PreferenceKey {
 	/** Wildfly management password. See {@link #wildflyManagementURL} */
 	wildflyManagementPassword("wildfly.management.password"),	
 	
-	/** Type of the patient identification for the study manager. Allowed values: Patient, Visit, Encounter, Billing. See {@link #org.aktin.dwh.optinout.PatientReference} */
+	/** Type of the patient identification for the study manager. Allowed values: Patient, Visit, Encounter, Billing. See {@link PatientReference} */
 	studyIdReference("study.id.reference"),
 	/** Root numbers of the different reference types. Can be empty. */
 	cdaPatientRootPreset("cda.patient.root.preset"),

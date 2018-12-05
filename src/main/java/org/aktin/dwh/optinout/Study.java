@@ -53,6 +53,7 @@ public interface Study {
 	 * some entries might exist which cannot be found via this method
 	 * @param sic subject identification code
 	 * @return entry or {@code null} if not found
+	 * @throws IOException IO error
 	 */
 	PatientEntry getPatientBySIC(String sic) throws IOException;
 
