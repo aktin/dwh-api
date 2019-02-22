@@ -37,7 +37,13 @@ public interface ImportSummary {
 	 */
 	public Iterable<String> getLastErrors();
 
-	public void addRejected(boolean valid, String cause);
-	public void addCreated();
-	public void addUpdated();
+	/**
+	 * Count a rejected document.
+	 * @param templateId template id for the rejected document, or {@code null} if not known
+	 * @param valid whether the document passed the validation step
+	 * @param cause cause for the rejection. e.g. error message
+	 */
+	public void addRejected(String templateId, boolean valid, String cause);
+	public void addCreated(String templateId);
+	public void addUpdated(String templateId);
 }
