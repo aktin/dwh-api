@@ -84,6 +84,18 @@ public enum PreferenceKey {
 	studyIdBillingLabel("study.id.billing.label"),
 	/** Character for separating root and extension in case a root id has to be set manually and is not set in the preferences. */
 	studyIdSeparator("study.id.separator"),
+	/** Directory path where received CDA documents will be stored for debugging purposes. Must point to an existing directory. */
+	importCdaDebugDir("import.cda.debug.dir"),
+	/** Filter which documents will be stored for debugging. Possible values are {@code none}, {@code error}, {@code warning}, {@code info} or {@code all}.
+	 * Only one value can be specified and the latter codes always include the previous levels. A value of {@code info} means, that the CDA is only stored if the OperationOutcome has at least one message of severity {@code informational} (or higher).
+	 * If a directory is defined via {@link #importCdaDebugDir}, then the default level is {@code all}. If no directory is defined, the default level is {@code none}.
+	 */
+	importCdaDebugLevel("import.cda.debug.level"),
+	/** Filter which messages are displayed in the OperationOutcome resources. 
+	 * Uses the same values as in {@link #importCdaDebugLevel} with the only difference 
+	 * that {@code info} and {@code all} produce the same effect (since OperationOutcome
+	 * must always be returned). */
+	importCdaFhirOutcomeLevel("import.cda.fhir.outcome.level"),
 	
 	pseudonymAlgorithm("pseudonym.algorithm"),
 	pseudonymSalt("pseudonym.salt"),
