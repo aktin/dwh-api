@@ -40,6 +40,10 @@ public enum PreferenceKey {
 	reportDataPath("report.data.path"),
 	/** Location to use for temporary files during report generation */
 	reportTempPath("report.temp.path"),
+	/** Boolean preference option to keep temporary files generated and used 
+	 * during report compilation. These files are located in a sub-directory per 
+	 * report in report.temp.path and are usually deleted upon report completion.*/
+	reportDebugKeepTempFiles("report.debug.keeptempfiles"),
 	/** Reports which are no longer needed in the database will be moved to the archive path. This is a write-only operation. */
 	reportArchivePath("report.archive.path"),
 	/** Location where query data will be stored locally */
