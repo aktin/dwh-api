@@ -4,7 +4,7 @@
 
 	<groupId>org.aktin</groupId>
 	<artifactId>dwh-api</artifactId>
-	<version>0.5-SNAPSHOT</version>
+	<version>0.5</version>
 
 	<parent>
 		<groupId>org.aktin</groupId>
@@ -13,7 +13,7 @@
 	</parent>
 	<scm>
 		<developerConnection>scm:git:git@github.com:aktin/dwh-api.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>v0.5</tag>
 	</scm>
 	<repositories>
 		<repository>
