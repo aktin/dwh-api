@@ -67,8 +67,7 @@ public enum PreferenceKey {
 	datasource("db.datasource"),
 	/** JNDI email session name to use for outbound messages */
 	emailSession("email.session"),
-	/** Reply-to address used for outbound messages */
-	emailReplyTo("email.replyto"),
+
 	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
 	wildflyManagementURL("wildfly.management.url"),
 	/** Wildfly management user. See {@link #wildflyManagementURL} */
@@ -103,6 +102,9 @@ public enum PreferenceKey {
 	
 	pseudonymAlgorithm("pseudonym.algorithm"),
 	pseudonymSalt("pseudonym.salt"),
+	
+	
+	
 	;
 
 	private String key;
