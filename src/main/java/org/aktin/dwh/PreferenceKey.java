@@ -9,9 +9,6 @@ import org.aktin.dwh.optinout.PatientReference;
  *
  */
 public enum PreferenceKey {
-
-	keystorePath("tls.keystore.file"),
-	keystorePass("tls.keystore.pass"),
 	commonName("local.cn"),
 	organisationName("local.o"),
 	organisationUnit("local.ou"),
