@@ -65,6 +65,13 @@ public enum PreferenceKey {
 	/** JNDI email session name to use for outbound messages */
 	emailSession("email.session"),
 
+	/** Location where uploaded data files (like p21) are stored */
+	importDataPath("import.data.path"),
+	/** Location where scripts to process uploaded data files are stored */
+	importScriptPath("import.script.path"),
+	/** Interval in milliseconds to check hang up of script execution */
+	importScriptCheckInterval("import.script.check.interval"),
+
 	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
 	wildflyManagementURL("wildfly.management.url"),
 	/** Wildfly management user. See {@link #wildflyManagementURL} */
