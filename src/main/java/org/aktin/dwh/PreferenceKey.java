@@ -69,8 +69,8 @@ public enum PreferenceKey {
 	importDataPath("import.data.path"),
 	/** Location where scripts to process uploaded data files are stored */
 	importScriptPath("import.script.path"),
-	/** Interval in milliseconds to check hang up of script execution */
-	importScriptCheckInterval("import.script.check.interval"),
+	/** Time in milliseconds to stop script execution after */
+	importScriptTimeout("import.script.timeout"),
 
 	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
 	wildflyManagementURL("wildfly.management.url"),
