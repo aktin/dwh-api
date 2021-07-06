@@ -4,7 +4,7 @@ import org.aktin.dwh.optinout.PatientReference;
 
 /**
  * Preferences keys for the data warehouse
- * 
+ *
  * @author R.W.Majeed
  *
  */
@@ -27,18 +27,24 @@ public enum PreferenceKey {
 	i2b2ServicePM("i2b2.service.pm"),
 	i2b2ServiceDomain("i2b2.service.domain"),
 	// import.cda.debug.dir, import.cda.debug.level, i2b2.db.tz
-	
+
 	/** JNDI data source name which is also used by the i2b2 CRC cell */
 	i2b2DatasourceCRC("i2b2.datasource.crc"),
 	/** Timezone used in the i2b2 database. Usually not needed because the system timezone is used. */
 	//i2b2DatabaseTimezone("i2b2.db.tz"),
+
 	rScriptBinary("rscript.binary"),
 	/** Location where generated reports are stored */
+	rScriptTimeout("rscript.timeout"),
+	/** Time in milliseconds to stop script execution after */
+	rScriptDebug("rscript.debug"),
+	/** will print full error log and additional start information if set to true */
+
 	reportDataPath("report.data.path"),
 	/** Location to use for temporary files during report generation */
 	reportTempPath("report.temp.path"),
-	/** Boolean preference option to keep temporary files generated and used 
-	 * during report compilation. These files are located in a sub-directory per 
+	/** Boolean preference option to keep temporary files generated and used
+	 * during report compilation. These files are located in a sub-directory per
 	 * report in report.temp.path and are usually deleted upon report completion.*/
 	reportDebugKeepTempFiles("report.debug.keeptempfiles"),
 	/** Reports which are no longer needed in the database will be moved to the archive path. This is a write-only operation. */
@@ -77,8 +83,8 @@ public enum PreferenceKey {
 	/** Wildfly management user. See {@link #wildflyManagementURL} */
 	wildflyManagementUser("wildfly.management.user"),
 	/** Wildfly management password. See {@link #wildflyManagementURL} */
-	wildflyManagementPassword("wildfly.management.password"),	
-	
+	wildflyManagementPassword("wildfly.management.password"),
+
 	/** Type of the patient identification for the study manager. Allowed values: Patient, Visit, Encounter, Billing. See {@link PatientReference} */
 	studyIdReference("study.id.reference"),
 	/** Root numbers of the different reference types. Can be empty. */
@@ -98,17 +104,17 @@ public enum PreferenceKey {
 	 * If a directory is defined via {@link #importCdaDebugDir}, then the default level is {@code all}. If no directory is defined, the default level is {@code none}.
 	 */
 	importCdaDebugLevel("import.cda.debug.level"),
-	/** Filter which messages are displayed in the OperationOutcome resources. 
-	 * Uses the same values as in {@link #importCdaDebugLevel} with the only difference 
+	/** Filter which messages are displayed in the OperationOutcome resources.
+	 * Uses the same values as in {@link #importCdaDebugLevel} with the only difference
 	 * that {@code info} and {@code all} produce the same effect (since OperationOutcome
 	 * must always be returned). */
 	importCdaFhirOutcomeLevel("import.cda.fhir.outcome.level"),
-	
+
 	pseudonymAlgorithm("pseudonym.algorithm"),
 	pseudonymSalt("pseudonym.salt"),
-	
-	
-	
+
+
+
 	;
 
 	private String key;
@@ -118,9 +124,9 @@ public enum PreferenceKey {
 	public String key(){
 		return key;
 	}
-	
+
 	/*
-	local.name (W) local name for this site/clinic, 
+	local.name (W) local name for this site/clinic,
 	local.contact.name (W)
 	local.contact.email (W)
 
