@@ -14,7 +14,7 @@ import org.aktin.report.GeneratedReport;
 public interface ArchivedReport extends GeneratedReport {
 
 	public enum Status{
-		Waiting, Completed, InsufficientData, Failed
+		Waiting, Completed, InsufficientData, Timeout, Failed
 	}
 	/**
 	 * Get the id of the generated report within the archive.
