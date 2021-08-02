@@ -1,51 +1,25 @@
 package org.aktin.dwh;
 
-import java.util.Map;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
- * Collect diverse resources from DWH and sent them to the AKTIN Broker
- * Resources are external dependencies, such as a required linux package or a postgresql database
- * All ressources are defined as (name of resource) : (version of resource)
+ * interface to provide injecting classes resource handling functionality of broker-client
  */
 public interface BrokerResourceManager {
 
-    /**
-     * put new resource group of this broker-client on the AKTIN Broker
-     */
-    void putResourceGroup(String name, Map<String, String> resources);
+    // upload a new resource group of given name to AKTIN broker
+    void putMyResource(String name, String contentType, final InputStream content);
 
-    /**
-     * get the version of a given linux package
-     */
-    String getLinuxPackageVersion(String package_apt);
+    void putMyResource(String name, String contentType, final String content);
 
-    /**
-     * get the version of the used application server
-     */
-    String getApplicationServerVersion();
+    void putMyResourceProperties(final String name, final Properties properties);
 
-    /**
-     * get the version of the used database
-     */
-    String getDatabaseVersion();
+    void putMyResourceXml(String name, final Object jaxbObject);
 
-    /*
-     * get the version of apache server
-     */
-    String getApacheVersion();
+    // get a resource group of given name from AKTIN broker
+    Properties getMyResourceProperties(String name);
 
-    /**
-     * get the version of the used dwhj2ee
-     */
-    String getDwhVersion();
-
-    /**
-     * get the version of the used dwh-api
-     */
-    String getDwhApiVersion();
-
-    /**
-     * get the used java version
-     */
-    String getJavaVersion();
+    // delete a resource group from AKTIN broker
+    void deleteMyResource(String name);
 }
