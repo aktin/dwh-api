@@ -78,6 +78,9 @@ public enum PreferenceKey {
 	/** Time in milliseconds to stop script execution after */
 	importScriptTimeout("import.script.timeout"),
 
+	/** Location to search for dwh-update service */
+	updateDataPath("update.data.path"),
+
 	/** URL to the wildfly management HTTP endpoint. Used to display log files, etc. */
 	wildflyManagementURL("wildfly.management.url"),
 	/** Wildfly management user. See {@link #wildflyManagementURL} */
