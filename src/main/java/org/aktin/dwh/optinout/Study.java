@@ -16,6 +16,10 @@ public interface Study {
 
 	Instant getCreatedTimestamp();
 	Instant getClosedTimestamp();
+
+	boolean isOptIn();
+	boolean isOptOut();
+
 	
 	/**
 	 * Determine whether this study allows the specified participation option.
@@ -24,13 +28,19 @@ public interface Study {
 	 * @return true if the study allows the specified option
 	 */
 	boolean isParticipationSupported(Participation participation);
-	
+
 	/**
-	 * Whether this study supports manual SIC entries or not.
-	 * @return {@code true} if the study allows manual entry of SICs. {@code false} otherwise
+	 * Get the method of SIC generation
+	 * @return sic generation enum
 	 */
-	boolean supportsManualSICs();
-	
+	SICGeneration getSicGeneration();
+	void setSicGeneration(SICGeneration sic);
+
+	String getSicGenerator();
+	void setSicGenerator(String sicGenerator);
+	String getSicGeneratorState();
+	void setSicGeneratorState(String sicGeneratorState);
+
 	/**
 	 * Validate the syndax for a (usually manually entered) subject identification code 
 	 * @param sic code
@@ -62,4 +72,5 @@ public interface Study {
 	List<? extends PatientEntry> allPatients() throws IOException;
 
 	PatientEntry addPatient(PatientReference ref, String id_root, String id_ext, Participation opt, String sic, String comment, String user) throws IOException;
+	PatientEntry updatePatient(PatientEntry oldEntry, PatientEntry newEntry) throws IOException;
 }
