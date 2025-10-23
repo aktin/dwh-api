@@ -3,6 +3,7 @@ package org.aktin.dwh.optinout;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 public interface Study {
 
@@ -16,6 +17,10 @@ public interface Study {
 
 	Instant getCreatedTimestamp();
 	Instant getClosedTimestamp();
+
+	boolean isOptIn();
+	boolean isOptOut();
+
 	
 	/**
 	 * Determine whether this study allows the specified participation option.
@@ -24,13 +29,19 @@ public interface Study {
 	 * @return true if the study allows the specified option
 	 */
 	boolean isParticipationSupported(Participation participation);
-	
+
 	/**
-	 * Whether this study supports manual SIC entries or not.
-	 * @return {@code true} if the study allows manual entry of SICs. {@code false} otherwise
+	 * Get the method of SIC generation
+	 * @return sic generation enum
 	 */
-	boolean supportsManualSICs();
-	
+	SICGeneration getSicGeneration();
+	void setSicGeneration(SICGeneration sic);
+
+	String getSicGenerator();
+	void setSicGenerator(String sicGenerator);
+	String getSicGeneratorState();
+	void setSicGeneratorState(String sicGeneratorState);
+
 	/**
 	 * Validate the syndax for a (usually manually entered) subject identification code 
 	 * @param sic code
@@ -57,9 +68,57 @@ public interface Study {
 	 */
 	PatientEntry getPatientBySIC(String sic) throws IOException;
 
-	PatientEntry getPatientByID(PatientReference ref, String id_root, String id_ext) throws IOException;
+	/**
+	 * Find a patient by their reference type, root id and extension
+	 * @param ref Patient reference like Encounter id, billing number or patient id
+	 * @param idRoot Root id, depends on the patient reference
+	 * @param idExt unique patient extension
+	 * @return Patient entry or null of not found
+	 * @throws IOException
+	 */
+	PatientEntry getPatientByID(PatientReference ref, String idRoot, String idExt) throws IOException;
 
+	/**
+	 * Returns all patients registered in this study
+	 * @return all patients registered in this study
+	 * @throws IOException
+	 */
 	List<? extends PatientEntry> allPatients() throws IOException;
 
-	PatientEntry addPatient(PatientReference ref, String id_root, String id_ext, Participation opt, String sic, String comment, String user) throws IOException;
+	/**
+	 * Persists single patient
+	 * @param ref Patient reference like Encounter id, billing number or patient id
+	 * @param idRoot Root id, depends on the patient reference
+	 * @param idExt unique patient extension
+	 * @param opt participation, Opt-In or Opt-Out
+	 * @param sic sic subject identification code
+	 * @param comment
+	 * @param user creator
+	 * @return added patient entry
+	 * @throws IOException
+	 */
+	PatientEntry addPatient(PatientReference ref, String idRoot, String idExt, Participation opt, String sic, String comment, String user) throws IOException;
+
+	/**
+	 * Persists multiple patients
+	 * @param ref Patient reference like Encounter id, billing number or patient id
+	 * @param idRoot Root id, depends on the patient reference
+	 * @param idExts unique patient extensions - should have the same length as sics, each element at index i corresponds to the respective element at index i for sics
+	 * @param sics sic subject identification code - should have the same length as idExts, each element at index i corresponds to the respective element at index i for idExts, in case a sic is not given, the element should be null
+	 * @param opt participation, Opt-In or Opt-Out
+	 * @param comment
+	 * @param user creator
+	 * @return list of created entries
+	 * @throws IOException
+	 */
+	List<PatientEntry> addPatients(PatientReference ref, String idRoot, List<String> idExts, List<String> sics, Participation opt, String comment, String user) throws IOException;
+
+	/**
+	 * Update an old entry
+	 * @param oldEntry entry to be updated
+	 * @param newEntry new entry
+	 * @return updated entry
+	 * @throws IOException
+	 */
+	PatientEntry updatePatient(PatientEntry oldEntry, PatientEntry newEntry) throws IOException;
 }

@@ -7,6 +7,9 @@ public interface StudyManager {
 
 	List<? extends Study> getStudies() throws IOException;
 
+	PatientMasterData loadMasterData(PatientReference ref, String root, String ext) throws IOException;
+	List<PatientEncounter> loadEncounters(PatientReference ref, String root, String ext) throws IOException;
+
 	/**
 	 * Try to link all entries which have not been linked yet to
 	 * the actual existing data. After a successful link has been established,
