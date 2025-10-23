@@ -15,7 +15,7 @@
 		<project.scm.id>github.com</project.scm.id>
 	</properties>
 	<scm>
-		<developerConnection>scm:git:git@github.com:aktin/dwh-api.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/aktin/dwh-api.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
