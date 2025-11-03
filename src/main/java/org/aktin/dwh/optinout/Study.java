@@ -103,15 +103,14 @@ public interface Study {
 	 * Persists multiple patients
 	 * @param ref Patient reference like Encounter id, billing number or patient id
 	 * @param idRoot Root id, depends on the patient reference
-	 * @param idExts unique patient extensions - should have the same length as sics, each element at index i corresponds to the respective element at index i for sics
-	 * @param sics sic subject identification code - should have the same length as idExts, each element at index i corresponds to the respective element at index i for idExts, in case a sic is not given, the element should be null
+	 * @param entries map for unique patient extensions (key) and sics (value) - sic may be {@code null}
 	 * @param opt participation, Opt-In or Opt-Out
 	 * @param comment
 	 * @param user creator
 	 * @return list of created entries
 	 * @throws IOException
 	 */
-	List<PatientEntry> addPatients(PatientReference ref, String idRoot, List<String> idExts, List<String> sics, Participation opt, String comment, String user) throws IOException;
+	List<PatientEntry> addPatients(PatientReference ref, String idRoot, Map<String, String> entries, Participation opt, String comment, String user) throws IOException;
 
 	/**
 	 * Update an old entry
