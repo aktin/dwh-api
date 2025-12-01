@@ -16,11 +16,17 @@ public interface Study {
 	String getDescription();
 
 	Instant getCreatedTimestamp();
+
+	/**
+	 * when the study was closed. {@code null} if still open
+	 */
 	Instant getClosedTimestamp();
 
-	boolean isOptIn();
-	boolean isOptOut();
-
+	/**
+	 * Get the participation option for this study.
+	 * @return participation option
+	 */
+	Participation getParticipation();
 	
 	/**
 	 * Determine whether this study allows the specified participation option.
@@ -35,19 +41,18 @@ public interface Study {
 	 * @return sic generation enum
 	 */
 	SICGeneration getSicGeneration();
-	void setSicGeneration(SICGeneration sic);
-
-	String getSicGenerator();
-	void setSicGenerator(String sicGenerator);
-	String getSicGeneratorState();
-	void setSicGeneratorState(String sicGeneratorState);
 
 	/**
-	 * Validate the syndax for a (usually manually entered) subject identification code 
-	 * @param sic code
-	 * @return validation error message, or {@code null} if valid
+	 * Get the generator of automatic SIC generation.
+	 * @return generator name or {@code null} if no generator is used
 	 */
-	String validateSIC(String sic);
+	String getSicGenerator();
+
+	/**
+	 * Get the state of the generator.
+	 * @return generator state (e.g. last generated SIC (sequence))
+	 */
+	String getSicGeneratorState();
 
 	/**
 	 * Generate a new subject identification code (SIC). This is a transaction which
@@ -86,31 +91,24 @@ public interface Study {
 	List<? extends PatientEntry> allPatients() throws IOException;
 
 	/**
-	 * Persists single patient
-	 * @param ref Patient reference like Encounter id, billing number or patient id
-	 * @param idRoot Root id, depends on the patient reference
-	 * @param idExt unique patient extension
-	 * @param opt participation, Opt-In or Opt-Out
-	 * @param sic sic subject identification code
-	 * @param comment
-	 * @param user creator
-	 * @return added patient entry
-	 * @throws IOException
-	 */
-	PatientEntry addPatient(PatientReference ref, String idRoot, String idExt, Participation opt, String sic, String comment, String user) throws IOException;
-
-	/**
 	 * Persists multiple patients
-	 * @param ref Patient reference like Encounter id, billing number or patient id
-	 * @param idRoot Root id, depends on the patient reference
-	 * @param entries map for unique patient extensions (key) and sics (value) - sic may be {@code null}
-	 * @param opt participation, Opt-In or Opt-Out
-	 * @param comment
+	 * @param patients patient entries
 	 * @param user creator
 	 * @return list of created entries
 	 * @throws IOException
 	 */
-	List<PatientEntry> addPatients(PatientReference ref, String idRoot, Map<String, String> entries, Participation opt, String comment, String user) throws IOException;
+	List<PatientEntry> addPatients(List<PatientEntryData> patients, String user) throws IOException;
+
+	/**
+	 * Validates a list of patient entry data and returns a map associating each entry with a list of validation results.
+	 * This method is used to ensure that the provided patient data complies with predefined validation rules.
+	 *
+	 * @param entries the list of {@link PatientEntryData} objects representing the patient entries to validate.
+	 * @return a map where each {@link PatientEntryData} is associated with a list of {@link ValidationResult} objects
+	 *         indicating the outcome of the validation process for that entry. When list is empty, the entry is valid.
+	 * @throws IOException if there is an I/O exception during the validation process.
+	 */
+	Map<PatientEntryData, List<ValidationResult>> validatePatients(List<PatientEntryData> entries) throws IOException;
 
 	/**
 	 * Update an old entry
@@ -119,5 +117,29 @@ public interface Study {
 	 * @return updated entry
 	 * @throws IOException
 	 */
-	PatientEntry updatePatient(PatientEntry oldEntry, PatientEntry newEntry) throws IOException;
+	PatientEntry updatePatient(PatientReference ref, String root, String extension, PatientEntryData newData, String user) throws IOException;
+
+	/**
+	 * Delete a patient entry
+	 * @param ref patient reference
+	 * @param root patient root id
+	 * @param extension patient extension
+	 * @param user user who requested the deletion
+	 * @throws IOException
+	 */
+	void deletePatient(PatientReference ref, String root, String extension, String user) throws IOException;
+
+	/**
+	 * Load master data for a patient
+	 * @return master data of the patient or null if no master data was found
+	 * @throws IOException
+	 */
+	PatientMasterData loadMasterData(PatientReference ref, String root, String extension) throws IOException;
+
+	/**
+	 * load all encounters for a patient
+	 * @return List of encounters
+	 * @throws IOException
+	 */
+	List<PatientEncounter> loadEncounters(PatientReference ref, String root, String extension) throws IOException;
 }
