@@ -1,13 +1,8 @@
 package org.aktin.dwh.optinout;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.time.Instant;
-import java.util.List;
 
 public interface PatientEntry {
-
-	Study getStudy();
 	Participation getParticipation();
 	PatientReference getReference();
 	String getIdRoot();
@@ -23,11 +18,4 @@ public interface PatientEntry {
 	 * @return patient_num from i2b2, or {@code null} if no link is available.
 	 */
 	Integer getI2b2PatientNum();
-
-	/**
-	 * Determine whether a second patient is equal (study, pat_ref,pat_root,pat_ext)
-	 * @param other other entry
-	 * @return true if the ids are equal, false otherwise
-	 */
-	boolean equalsId(PatientEntry other);
 }
