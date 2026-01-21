@@ -1,4 +1,6 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.service;
+
+import org.aktin.dwh.optinout.model.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +31,7 @@ public interface PatientService {
      * @param user user who added the patients
      * @throws IOException
      */
-    void addPatients(String studyId, List<PatientEntryData> patientEntryData, String user) throws IOException;
+    void addPatientsToStudy(String studyId, List<PatientEntryData> patientEntryData, String user) throws IOException;
 
     /**
      * Delete a patient from a study.

@@ -1,4 +1,4 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.model;
 /**
  * Validation result of a inserted entry data
  */

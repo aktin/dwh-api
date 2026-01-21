@@ -1,9 +1,6 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.model;
 
-import java.io.IOException;
 import java.time.Instant;
-import java.util.List;
-import java.util.Map;
 
 public interface Study {
 

@@ -1,4 +1,4 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
