@@ -5,8 +5,8 @@ import java.time.Instant;
 public interface PatientEntry {
 	Participation getParticipation();
 	PatientReference getReference();
-	String getIdRoot();
-	String getIdExt();
+	String getRoot();
+	String getExtension();
 	String getSIC();
 	String getUser();
 	Instant getTimestamp();

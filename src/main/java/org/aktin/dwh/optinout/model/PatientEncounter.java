@@ -3,7 +3,7 @@ package org.aktin.dwh.optinout.model;
 import java.time.Instant;
 
 public interface PatientEncounter {
-    String getPseudonym();
+    String getIdEnc();
     Instant getStartDate();
     Instant getEndDate();
 }
