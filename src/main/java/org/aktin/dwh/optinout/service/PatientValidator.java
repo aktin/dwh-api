@@ -1,5 +1,6 @@
 package org.aktin.dwh.optinout.service;
 
+import org.aktin.dwh.optinout.model.PatientEntry;
 import org.aktin.dwh.optinout.model.PatientEntryData;
 import org.aktin.dwh.optinout.model.ValidationResult;
 
@@ -19,8 +20,8 @@ public interface PatientValidator {
      *
      * @param studyId the unique identifier for the study in which the patients are being validated.
      * @param patients the list of {@link PatientEntryData} objects representing the patient entries to be validated.
-     * @return a map where each {@link PatientEntryData} is associated with a list of {@link ValidationResult} objects
+     * @return a map where each {@link PatientEntry} is associated with a list of {@link ValidationResult} objects
      *         indicating the outcome of the validation process for that entry. An empty list indicates the entry is valid.
      */
-    Map<PatientEntryData, List<ValidationResult>> validatePatients(String studyId, List<PatientEntryData> patients) throws IOException;
+    Map<PatientEntry, List<ValidationResult>> validatePatients(String studyId, List<PatientEntryData> patients) throws IOException;
 }

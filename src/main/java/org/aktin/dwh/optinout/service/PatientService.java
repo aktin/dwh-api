@@ -64,6 +64,15 @@ public interface PatientService {
     List<PatientEncounter> getEncounters(PatientReference ref, String extension) throws IOException;
 
     /**
+     * Get all encounters for a list of patients.
+     * @param ref patient reference
+     * @param extensions patient extensions
+     * @return list of encounters
+     * @throws IOException
+     */
+    List<PatientEncounter> getEncounters(PatientReference ref, List<String> extensions) throws IOException;
+
+    /**
      * Get master data (like sex, zip, etc.) for a patient.
      * @param ref patient reference
      * @param extension patient extension
@@ -71,4 +80,13 @@ public interface PatientService {
      * @throws IOException
      */
     PatientMasterData getMasterData(PatientReference ref, String extension) throws IOException;
+
+    /**
+     * Get master data (like sex, zip, etc.) for a list of patients.
+     * @param ref patient reference
+     * @param extensions patient extensions
+     * @return master data
+     * @throws IOException
+     */
+    List<PatientMasterData> getMasterData(PatientReference ref, List<String> extensions) throws IOException;
 }

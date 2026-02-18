@@ -19,4 +19,5 @@ public class PatientEntryData {
     private boolean generateSic;
     private Participation participation;
     private PatientReference reference;
+    private String idEnc;
 }
