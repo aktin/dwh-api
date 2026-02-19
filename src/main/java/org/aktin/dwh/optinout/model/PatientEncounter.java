@@ -1,10 +1,9 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.model;
 
 import java.time.Instant;
 
 public interface PatientEncounter {
-    int getEncounterId();
-    int getPatientId();
+    String getIdEnc();
     Instant getStartDate();
     Instant getEndDate();
 }

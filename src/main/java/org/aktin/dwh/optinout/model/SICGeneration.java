@@ -1,4 +1,4 @@
-package org.aktin.dwh.optinout;
+package org.aktin.dwh.optinout.model;
 
 /**
  * Method of Sic generation
