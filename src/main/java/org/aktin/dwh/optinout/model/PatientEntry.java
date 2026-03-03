@@ -11,7 +11,7 @@ public interface PatientEntry {
 	String getUser();
 	Instant getTimestamp();
 	String getComment();
-	String getIdEnc();
+	String getIde();
 
 	/**
 	 * Get the i2b2 patient_num field. Only available, if the patient was linked
