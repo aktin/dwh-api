@@ -1,6 +1,6 @@
 package org.aktin.dwh;
 
-import org.aktin.dwh.optinout.PatientReference;
+import org.aktin.dwh.optinout.model.PatientReference;
 
 /**
  * Preferences keys for the data warehouse
